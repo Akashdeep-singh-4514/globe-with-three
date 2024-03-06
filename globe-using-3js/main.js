@@ -1,4 +1,6 @@
 import * as THREE from 'three';
+import vertexShader from "./shaders/vertex.glsl"
+import fragmentShader from "./shaders/fragment.glsl"
 
 
 //basic objects
@@ -16,7 +18,23 @@ document.body.appendChild(renderer.domElement);
 // creating sphere
 const geometry = new THREE.SphereGeometry(5, 50, 50);
 // covering sphere with map
-const material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load("./partials/globe.jpg") });
+
+
+// const material = new THREE.MeshBasicMaterial({
+//   //  map: new THREE.TextureLoader().load("./partials/globe.jpg") 
+
+// });
+
+// creating custom shader
+const material = new THREE.ShaderMaterial({
+  vertexShader,
+  fragmentShader,
+  uniforms: {
+    globeTexture: {
+      value: new THREE.TextureLoader().load("./partials/globe.jpg")
+    }
+  }
+})
 const sphere = new THREE.Mesh(geometry, material); scene.add(sphere)
 scene.add(sphere)
 
