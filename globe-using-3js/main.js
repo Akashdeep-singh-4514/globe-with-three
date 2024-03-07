@@ -1,6 +1,8 @@
 import * as THREE from 'three';
 import vertexShader from "./shaders/vertex.glsl"
 import fragmentShader from "./shaders/fragment.glsl"
+import atmosphereVertexShader from "./shaders/atmosphereVertex.glsl"
+import atmosphereFragmentShader from "./shaders/atmosphereFragments.glsl"
 
 
 //basic objects
@@ -37,6 +39,20 @@ const material = new THREE.ShaderMaterial({
 })
 const sphere = new THREE.Mesh(geometry, material); scene.add(sphere)
 scene.add(sphere)
+
+//atmosphere mesh
+
+const atmosphere = new THREE.Mesh(
+  new THREE.SphereGeometry(5, 50, 50),
+  new THREE.ShaderMaterial(
+    {
+      vertexShader: atmosphereVertexShader,
+      fragmentShader: atmosphereFragmentShader,
+      blending: THREE.AdditiveBlending,
+      side: THREE.BackSide
+    }
+  )
+)
 
 
 // animate function
