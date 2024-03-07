@@ -41,7 +41,8 @@ const sphere = new THREE.Mesh(geometry, material); scene.add(sphere)
 scene.add(sphere)
 
 //atmosphere mesh
-
+console.log(atmosphereVertexShader);
+console.log(atmosphereFragmentShader);
 const atmosphere = new THREE.Mesh(
   new THREE.SphereGeometry(5, 50, 50),
   new THREE.ShaderMaterial(
@@ -53,7 +54,7 @@ const atmosphere = new THREE.Mesh(
     }
   )
 )
-
+scene.add(atmosphere)
 
 // animate function
 const animate = () => {
