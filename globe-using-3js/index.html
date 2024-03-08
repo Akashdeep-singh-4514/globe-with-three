@@ -4,10 +4,41 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./style.css" />
     <title>Vite App</title>
   </head>
   <body style="margin: 0">
-    <div id="app"></div>
+    <div id="app" class="flex bg-black h-screen">
+      <div class="w-1/2 flex flex-col px-8 justify-center">
+        <h1 class="text-white text-4xl capitalize text-center">
+          akashdeep singh
+        </h1>
+        <h2 class="text-white text-2xl capitalize my-2 text-center">
+          software Engineer
+        </h2>
+        <p class="my-3 mx-20 text-white">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure nemo
+          quae culpa accusamus eius dolorum nisi corporis expedita, sunt
+          veritatis suscipit. Adipisci tenetur magni nobis quas vero voluptas
+          quaerat vitae?
+        </p>
+
+        <a
+          href="https://github.com/Akashdeep-singh-4514?tab=repositories"
+          class="justify-center my-5 mx-auto text-white"
+          ><button
+            type="button"
+            class="border p-1 rounded-md hover:bg-white hover:text-black"
+          >
+            see work
+          </button></a
+        >
+      </div>
+      <div class="w-1/2" id="canvasContainer">
+        <canvas id="canvas"></canvas>
+      </div>
+    </div>
     <script type="module" src="/main.js"></script>
   </body>
 </html>
