@@ -41,19 +41,20 @@ const sphere = new THREE.Mesh(geometry, material); scene.add(sphere)
 scene.add(sphere)
 
 //atmosphere mesh
-console.log(atmosphereVertexShader);
-console.log(atmosphereFragmentShader);
-const atmosphere = new THREE.Mesh(
-  new THREE.SphereGeometry(5, 50, 50),
-  new THREE.ShaderMaterial(
-    {
-      vertexShader: atmosphereVertexShader,
-      fragmentShader: atmosphereFragmentShader,
-      blending: THREE.AdditiveBlending,
-      side: THREE.BackSide
-    }
-  )
+const atmosphereGeometry = new THREE.SphereGeometry(5, 50, 50)
+const atmosphereMaterial = new THREE.ShaderMaterial(
+  {
+    vertexShader: atmosphereVertexShader,
+    fragmentShader: atmosphereFragmentShader,
+    blending: THREE.AdditiveBlending,
+    side: THREE.BackSide
+  }
 )
+const atmosphere = new THREE.Mesh(
+  atmosphereGeometry,
+  atmosphereMaterial
+)
+atmosphere.scale.set(1.1, 1.1, 1.1)
 scene.add(atmosphere)
 
 // animate function
@@ -63,3 +64,14 @@ const animate = () => {
   sphere.rotation.y += 0.01
 }
 animate()
+
+const mouse = {
+  x: undefined,
+  y: undefined
+}
+addEventListener("mousemove", (e) => {
+
+  mouse.x = ((e.clientX / innerWidth) * 2) - 1
+  mouse.y = -((e.clientY / innerHeight) * 2) + 1
+  // console.log(mouse);
+})
