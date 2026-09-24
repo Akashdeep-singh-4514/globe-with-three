@@ -1,1 +1,3 @@
 globe-using-3js/.gitignore
+*/node_modules
+*/dist
