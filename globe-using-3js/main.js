@@ -40,7 +40,7 @@ const material = new THREE.ShaderMaterial({
   fragmentShader,
   uniforms: {
     globeTexture: {
-      value: new THREE.TextureLoader().load("./partials/globe.jpg")
+      value: new THREE.TextureLoader().load("./public/globe.jpg")
     }
   }
 })
